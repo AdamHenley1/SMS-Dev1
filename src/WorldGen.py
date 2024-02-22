@@ -58,7 +58,12 @@ class World:
         self.worldMap = []
 
     def __str__(self) -> str:
-        return("No")
+        retVal = ""
+        for y in range(self.getY()):
+            for x in range(self.getX()):
+                retVal += ("{0}x{1}: {2}\t".format(x, y, self.worldMap[y][x]))
+            retVal += '\n'
+        return(retVal)
 
     def getX(self) -> int:
         return(self.size[0])
@@ -73,11 +78,8 @@ class World:
         return(self.worldMap[y][x])
 
     ## This prints the world
-    def getMap(self) -> None:
-        for y in range(self.getY()):
-            for x in range(self.getX()):
-                print("{0}x{1}: {2}\t".format(x, y, self.worldMap[y][x]), end = '')
-            print()
+    def getMap(self) -> list:
+        return(self.worldMap)
 
     ## This generates the the world
     def buildWorld(self) -> None:
