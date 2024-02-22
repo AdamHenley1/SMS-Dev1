@@ -32,13 +32,19 @@ class Block:
     def setTree(self) -> None:
         self.setBlock("Tree", False, "ma")
 
-    def getProperties
+    def getProperties(self) -> int:
+        return(0)
 
-def Tree(Block):
-    def __init__(self, name = "Tree", move = False, info = "ma")
+## Specific class for trees.
+class Tree(Block):
+    def __init__(self) -> None:
+        super().__init__("Tree", False, "ma")
 
+    def chopDown(self) -> int:
+        return(0)
         
-## A class for the world
+        
+## A class for the world.
 class World:
     def __init__(self, name, sizeX = 4, sizeY = 4) -> None:
         self.ID = name
@@ -62,6 +68,8 @@ class World:
             self.worldMap.append([])
             
             for x in range(self.getX()):
+                if(25 < randint(1,100) < 30):
+                    self.worldMap[y].append(Tree())
                 self.worldMap[y].append(Block())
                 
     def getWorld(self) -> None:
