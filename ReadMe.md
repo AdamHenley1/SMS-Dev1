@@ -1,4 +1,4 @@
-# MERLIN HACKATHON 2024 | Team NotTheCIA
+ # MERLIN HACKATHON 2024 | Team NotTheCIA
 
 ## Game Plan
 ### Overview
