@@ -3,14 +3,14 @@ from math import *
 from random import *
 
 
-## List of block types.
-## Each tuple is block: name, movable, destroy with
 ## s is shovel, p is pickaxe
 class Block:
-    def __init__(self, name = "Dirt", move = True, info = "ms"):
+    def __init__(self, x, y, name = "Dirt", move = True, info = "ms"):
         self.name = name
         self.move = move
         self.info = info
+        self.x = x
+        self.y = y
 
     def __str__(self) -> str:
         return(self.name)
@@ -35,16 +35,22 @@ class Block:
     def getProperties(self) -> int:
         return(0)
 
+    def interact(self) -> None:
+        return(None)
+
+    
 ## Specific class for trees.
 class Tree(Block):
-    def __init__(self) -> None:
-        super().__init__("Tree", False, "ma")
+    def __init__(self, x, y) -> None:
+        super().__init__(x, y, "Tree", False, "ma")
 
-    def chopDown(self) -> int:
-        return(0)
+    def interact(self) -> int:
+        return("td", randint(5,20))
         
         
 ## A class for the world.
+## This goes y/x, not x/y as everything else
+## in the known universe does.
 class World:
     def __init__(self, name, sizeX = 4, sizeY = 4) -> None:
         self.ID = name
@@ -63,23 +69,32 @@ class World:
     def getSize(self) -> int:
         return(self.size())
 
-    def buildWorld(self) -> None:
-        for y in range(self.getY()):
-            self.worldMap.append([])
-            
-            for x in range(self.getX()):
-                if(25 < randint(1,100) < 30):
-                    self.worldMap[y].append(Tree())
-                self.worldMap[y].append(Block())
-                
-    def getWorld(self) -> None:
+    def getPoint(self, x, y) -> Block:
+        return(self.worldMap[y][x])
+
+    ## This prints the world
+    def getMap(self) -> None:
         for y in range(self.getY()):
             for x in range(self.getX()):
                 print("{0}x{1}: {2}\t".format(x, y, self.worldMap[y][x]), end = '')
             print()
 
+    ## This generates the the world
+    def buildWorld(self) -> None:
+        for y in range(self.getY()):
+            self.worldMap.append([])
+            
+            for x in range(self.getX()):
+                if(randint(1,100) <= 10):
+                    self.worldMap[y].append(Tree(x, y))
+                self.worldMap[y].append(Block(x, y))
+
+    def interact(self, x, y) -> None:
+        return(self.getPoint(x, y).interact())
+        
 
 
-world = World(0, sizeY = 10)
-world.buildWorld()
-world.getWorld()
+            
+if(__name__ == "__main__"):
+    myWorld = World(0)
+    myWorld.buildWorld()
