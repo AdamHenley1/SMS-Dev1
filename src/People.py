@@ -29,8 +29,7 @@ def getJob():
     prob = [fishProb, buildProb, lumProb]
 
     highest = max(prob)
-    print(max(prob))
-    print(prob.index(highest))
+
 
 
     n = random.random()
