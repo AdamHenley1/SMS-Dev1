@@ -27,18 +27,25 @@ def getJob():
     buildProb = 1/workers["builders"]
     lumProb = 1/workers["lumberjack"]
     prob = [fishProb, buildProb, lumProb]
-
-    
-
+    prob.sort(reverse = True)
 
     n = random.random()
     print(n)
 
     mid = prob[0]-prob[1]
-    #if prob[0] - n < mid/2
-        
+    print(prob[0], " ", prob[1], " ", mid)
+    if prob[0] - n < mid/2:
+        where = 0
+    else:
+        where = 1
+    if prob[where] == fishProb:
+        workers["fishermen"] = workers["fishermen"] + 1
+    elif prob[where] == buildProb:
+        workers["builders"] = workers["builders"] + 1
+    else:
+        workers["lumberjack"] = workers["lumberjack"] + 1
 
-
+    print(workers)
 getJob()
     
     
