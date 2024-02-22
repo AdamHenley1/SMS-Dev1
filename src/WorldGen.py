@@ -2,10 +2,6 @@
 from math import *
 from random import *
 
-global FISH
-global WOOD
-FISH = Fish(0)
-WOOD = Wood(0)
 
 
 ## The items are a collection of (guess what) items that people
