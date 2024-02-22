@@ -8,11 +8,14 @@ Dwarf Fortress clone. Procedurally generated world. You run a world, where you y
 ToDo:
 - Design class for people
 - Get people interacting with environment
+- Money system so people can trades goods for money
+- Tax system any trade 20% rounded up gets taxed to you so you can buy more trees and things
 
 ### World Plan
 ToDo:
 - Get storage working
 - Get world generation working
+- weather
 
 
 ## Misc
