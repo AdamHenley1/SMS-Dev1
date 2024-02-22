@@ -1,7 +1,19 @@
 # MERLIN HACKATHON 2024 | Team NotTheCIA
 
 ## Game Plan
-Bla bla bla
+### Overview
+Dwarf Fortress clone. Procedurally generated world. You run a world, where you you control things like taxes, weather, laws, etc. You start with ~100 people.
+
+### People Plan
+ToDO:
+- Design class for people
+- Get people interacting with environment
+
+### World Plan
+ToDo:
+- Get storage working
+- Get world generation working
+
 
 ## Misc
 ### Developers
