@@ -56,13 +56,20 @@ class people:
     def __init__(self, naming, ):
         self.job = getJob()
         self.name = naming
-    #    self.inventory = {"gold":0}
+        self.inventory = {"gold":0,
+                          "wood": 0,
+                          "fish": 0}
+
     def return_job(self):
         return self.job
     def return_name(self):
         return self.name
-    #def add_money(self, amount):
-    # self.inventory[0] = self.inventory[0] + amount
+"""   def add_money(self, amount):
+        self.inventory["gold"] = self.inventory["gold"] + amount
+    def add_wood(self, wood):
+        self.inventory["wood"] = self.inventory["wood"] + wood
+    def add_fish(self,fish):
+        self.inventory["fish"] = self.inventory["fish"] + fish"""
 
 for i in range(population):
     temp = getName()
