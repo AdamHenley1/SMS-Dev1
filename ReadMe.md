@@ -1,4 +1,4 @@
-# MERLIN HACKATHON 2024 | NotTheCIA.gov.us
+# MERLIN HACKATHON 2024 | NotTheCIA
 
 ## Misc
 ### Developers
