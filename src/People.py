@@ -28,8 +28,7 @@ def getJob():
     lumProb = 1/workers["lumberjack"]
     prob = [fishProb, buildProb, lumProb]
 
-    highest = max(prob)
-
+    
 
 
     n = random.random()
