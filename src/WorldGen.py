@@ -2,7 +2,44 @@
 from math import *
 from random import *
 
+global FISH
+global WOOD
+FISH = Fish(0)
+WOOD = Wood(0)
 
+
+## The items are a collection of (guess what) items that people
+## can collect, such as fish, wood, and many more!
+class Item:
+    def __init__(self, name, count) -> None:
+        self.name = name
+        self.count = count
+
+    def __add__(self, other) -> int:
+        return Item(self.name, self.count + other.count)
+
+    def __str__(self) -> int:
+        return("{0} {1}".format(self.count, self.name))
+
+    def getCount(self) -> int:
+        return(self.count)
+
+    def gained(self, n) -> None:
+        self.count += n
+
+
+class Wood(Item):
+    def __init__(self, count) -> None:
+        super().__init__("Wood", count)
+
+class Fish(Item):
+    def __init__(self, count) -> None:
+        super().__init__("Fish", count)
+
+
+
+## The Blocks are the building blocks of the map: everything is made
+## out of them.
 ## s is shovel, p is pickaxe
 class Block:
     def __init__(self, x, y, name = "Dirt", move = True, info = "ms"):
@@ -44,10 +81,23 @@ class Tree(Block):
     def __init__(self, x, y) -> None:
         super().__init__(x, y, "Tree", False, "ma")
 
-    def interact(self) -> int:
-        return("td", randint(5,20))
+    def interact(self) -> Wood:
+        return("td", Wood(randint(5,20)))
+
+## Specific class for water
+class Water(Block):
+    def __init__(self, x, y) -> None:
+        ## f is fishable
+        super().__init__(x, y, "Water", False, "f")
+
+    def interact(self) -> Fish:
+        caught = randint(1, 5)
+        if(caught == 1):
+            return(Fish(1))
+        return(Fish(0))
         
-        
+
+            
 ## A class for the world.
 ## This goes y/x, not x/y as everything else
 ## in the known universe does.
@@ -81,6 +131,15 @@ class World:
     def getMap(self) -> list:
         return(self.worldMap)
 
+    def setPoint(self, block, x, y):
+        self.worldMap[y][x] = block
+
+    ## Checks what specific instruction codes mean,
+    ## and executes them.
+    def instCode(self, code, x, y) -> None:
+        if(code == "td"):
+            self.setPoint(Block(x, y), x, y)
+
     ## This generates the the world
     def buildWorld(self) -> None:
         for y in range(self.getY()):
@@ -92,11 +151,17 @@ class World:
                 self.worldMap[y].append(Block(x, y))
 
     def interact(self, x, y) -> None:
-        return(self.getPoint(x, y).interact())
+        inter = self.getPoint(x, y).interact()
+        print(type(inter), inter)
+        if(type(inter) != type((0, 1))):
+            return(inter)
         
-
+        self.instCode(inter[0], x, y)
+        return(inter[1])
+        
 
             
 if(__name__ == "__main__"):
     myWorld = World(0)
     myWorld.buildWorld()
+    print(myWorld)
