@@ -53,13 +53,16 @@ def getJob():
     #print(workers)
 
 class people:
-    def __init__(self, naming):
+    def __init__(self, naming, ):
         self.job = getJob()
         self.name = naming
+    #    self.inventory = {"gold":0}
     def return_job(self):
         return self.job
     def return_name(self):
         return self.name
+    #def add_money(self, amount):
+    # self.inventory[0] = self.inventory[0] + amount
 
 for i in range(population):
     temp = getName()
