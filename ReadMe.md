@@ -5,7 +5,7 @@
 Dwarf Fortress clone. Procedurally generated world. You run a world, where you you control things like taxes, weather, laws, etc. You start with ~100 people.
 
 ### People Plan
-ToDO:
+ToDo:
 - Design class for people
 - Get people interacting with environment
 
