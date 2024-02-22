@@ -1,5 +1,6 @@
 import pygame
 import time as t
+import WorldGen
 
 pygame.init()
 
@@ -9,6 +10,14 @@ display = pygame.display.set_mode((1800,1000))
 clock = pygame.time.Clock()
 background_icon = pygame.image.load(".\\assets\lbackground.jpg") 
 #pygame.display.set_icon(background_icon)
+
+class tree:
+    def create():
+
+
+
+
+
 running = True
 while running == True:
     for event in pygame.event.get():
