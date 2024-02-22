@@ -1,3 +1,4 @@
+
 ## We need a lot of maths for this generation
 from math import *
 from random import *
@@ -59,9 +60,6 @@ class Block:
     def setWWall(self):
         self.setBlock("W-Wall", False, "ma")
 
-    def setWater(self):
-        self.setBlock("Water", False, "f,d")
-
     def setTree(self):
         self.setBlock("Tree", False, "ma")
 
@@ -98,7 +96,7 @@ class Water(Block):
 ## This goes y/x, not x/y as everything else
 ## in the known universe does.
 class World:
-    def __init__(self, name, sizeX = 4, sizeY = 4):
+    def __init__(self, name, sizeX = 1024, sizeY = 1024):
         self.ID = name
         self.size = (sizeX, sizeY)
         self.worldMap = []
@@ -136,13 +134,29 @@ class World:
         if(code == "td"):
             self.setPoint(Block(x, y), x, y)
 
-    ## This generates the the world
+    ## Find where water should be put, and puts it
+    ## there.
+    def createWater(self):
+        area = self.getX() * self.getY()
+        point = randint(1, area)
+
+        waterX = point % self.getY()
+        waterY = point // self.getY()
+
+        watersY = int(self.getY() * 0.1)
+
+        print(waterX, waterY)
+        for y in range(int(waterY - (self.getY() * 0.1)), int(waterY + (self.getY() * 0.1))):
+            self.setPoint(Water(waterX, y), waterX, y)
+
+        
+    ## This generates the the world.
     def buildWorld(self):
         for y in range(self.getY()):
             self.worldMap.append([])
             
             for x in range(self.getX()):
-                if(randint(1,100) <= 10):
+                if(randint(1,100) <= 20):
                     self.worldMap[y].append(Tree(x, y))
                 self.worldMap[y].append(Block(x, y))
 
@@ -157,6 +171,8 @@ class World:
 
             
 if(__name__ == "__main__"):
-    myWorld = World(0)
+    myWorld = World(0, sizeX = 12, sizeY = 36)
     myWorld.buildWorld()
+    
+    myWorld.createWater()
     print(myWorld)
