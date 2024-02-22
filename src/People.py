@@ -1,8 +1,9 @@
 import random
 from random import choice
-#class Person:
-#    def __init__(self, age = 0):
-#        self.age = age
+class Person:
+    def __init__(self, inventory, age = 0):
+        self.age = age
+        self.inventory = inventory
 
 def getName():
     first = ["Adam", "Andrea", "Cameron"]
