@@ -152,7 +152,6 @@ class World:
 
     def interact(self, x, y) -> None:
         inter = self.getPoint(x, y).interact()
-        print(type(inter), inter)
         if(type(inter) != type((0, 1))):
             return(inter)
         
