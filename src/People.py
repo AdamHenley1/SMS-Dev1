@@ -116,16 +116,20 @@ class People:
     ## Scans the local area for a specific block.
     def scanFor(self, block, radius):
         for y in range(radius):
+            for x in range(radius):
+                print(x, y)
             
 
     ## Finds some fish.
     def findFish(self):
         if(randint(0, 1) == 0):
-            self.move
+            self.move(0, 1)
+        else:
+            self.move(1, 0)
 
     ## Finds some wood.
     def findWood(self):
-        continue
+        return(None)
 
         
     ## Wanting something prefixes the variable with a 'w'.

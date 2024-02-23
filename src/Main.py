@@ -1,5 +1,5 @@
 from WorldGen import *
-#from People import *
+from People import *
 
 
 def startMenu():
