@@ -115,6 +115,7 @@ class World:
         return(self.size())
 
     def getPoint(self, x, y):
+        print(x, y)
         return(self.worldMap[y][x])
 
     ## This prints the world
@@ -187,9 +188,9 @@ class World:
 
             
 if(__name__ == "__main__"):
-    myWorld = World(0, sizeX = 12, sizeY = 32)
+    myWorld = World(0)
     myWorld.buildWorld()
 
 #    myWorld.createWater()
     
-    print(myWorld)
+    print(myWorld.getPoint(595, 694))

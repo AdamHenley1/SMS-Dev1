@@ -1,5 +1,6 @@
 import random
 from random import choice
+from WorldGen import *
 
 #global variables
 population = 100000
@@ -14,8 +15,17 @@ weather = {"humidity": 2,
            "precipitation": 1,
            "sunny": 3}
 
-#def position():
 
+
+def getPosition(world):
+    x = random.randint(0, world.getX())
+    y = random.randint(0,world.getY())
+    print(x, y)
+    print(world.getX(), world.getY())
+    print(world.getPoint(595, 694))
+
+andWorld = World(0)
+getPosition(andWorld)
 
 people_population = []
 
