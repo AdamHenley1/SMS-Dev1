@@ -85,7 +85,7 @@ class Tree(Block):
     def interact(self):
         return("td", Wood(randint(5,20)))
 
-## Specific class for water
+## Specific class for water.
 class Water(Block):
     def __init__(self, x, y):
         ## f is fishable
@@ -97,7 +97,7 @@ class Water(Block):
             return(Fish(1))
         return(Fish(0))
 
-#specific class for show people
+## Specific class for NPCs.
 class NPC(Block): 
     def __init__(self, x, y):
         super().__init__(x, y, Map_Person, False, "g")
