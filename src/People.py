@@ -25,6 +25,7 @@ def getPosition(world):
     print(world.getPoint(595, 694))
 
 andWorld = World(0)
+andWorld.buildWorld()
 getPosition(andWorld)
 
 people_population = []
@@ -36,7 +37,7 @@ def getName():
 
     with open("../assets/FirstNames.txt") as fNamesFile:
         for fName in fNamesFile:
-            fNames.append(fName[:-1)
+            fNames.append(fName[:-1])
     with open("../assets/LastNames.txt") as sNamesFile:
         for sName in sNamesFile:
             sNames.append(sName[:-1])
@@ -103,11 +104,16 @@ class people:
     def add_fish(self,fish):
         self.inventory["fish"] = self.inventory["fish"] + fish
 
-for i in range(population):
-    temp = getName()
-    temp = people(temp)
-    people_population.append(temp)
-#def person(age = 0):
-for i in range(population):
-    temp = people_population[i]
-    print("Name:",temp.return_name(),", Job:",temp.return_job())
+        
+## This will run if the file is directly called,
+## but not if it is imported as a library.
+if(__name__ == "__main__"):
+    for i in range(population):
+        temp = getName()
+        temp = people(temp)
+        people_population.append(temp)
+        #def person(age = 0):
+    for i in range(population):
+        temp = people_population[i]
+        print("Name:",temp.return_name(),", Job:",temp.return_job())
+            
