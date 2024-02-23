@@ -41,7 +41,7 @@ class Fish(Item):
 Map_Tree = "𓋼Tree"
 Map_Water = "║ Water"
 Map_Dirt = " Dirt"
-
+Map_Person = "웃 Person"
 class Block:
     def __init__(self, x, y, name = Map_Dirt, move = True, info = "ms"):
         self.name = name
@@ -96,8 +96,11 @@ class Water(Block):
         if(caught == 1):
             return(Fish(1))
         return(Fish(0))
-        
 
+#specific class for show people
+class person(Block): 
+    def __init__(self, x, y):
+        super().__init__(x, y, Map_Person, False, "g")
             
 ## A class for the world.
 ## This goes y/x, not x/y as everything else
@@ -233,11 +236,4 @@ class World:
 
             
 if(__name__ == "__main__"):
-    print()
-    myWorld = World(0, sizeX = 64, sizeY = 32)
-    #myWorld.buildWorld()
-
-    myWorld.loadWorld("saveData")
-    print(myWorld)
-    #myWorld.loadWorld("saveData")
-    #print(myWorld)
+    print("Hello, World!")

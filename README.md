@@ -1,8 +1,23 @@
 # MERLIN HACKATHON 2024 | Team NotTheCIA
 
-## Game Plan
+## HAC Society Overview
 ### Overview
-Dwarf Fortress clone. Procedurally generated world. You run a world, where you you control things like taxes, weather, laws, etc. You start with ~100 people.
+HAC Society is a world building game, set in a procedurally generated retro map. You have a civilisation of people; these people will do their own things, but you can set community goals (such as upgrading the town hall), which you will pay them to do for you.
+
+You get the money to pay for this from the taxes that the people will pay to you. They get taxed some money when they trade with each other, or [ maybe another thing ].
+
+There are more details on specific parts of this shown below.
+
+
+## The World
+The world is a grid of points along an x and y axis. Each block can start as one of three block: dirt (shown by a space), a tree (shown by a little tree), or water (shown by a little bar).
+
+When the game is started, the a new world can be generated on the fly, or one can be loaded from a file.
+
+## The People
+
+## The Economy
+
 
 ### People Plan
 ToDo:
