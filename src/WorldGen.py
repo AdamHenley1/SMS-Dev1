@@ -141,7 +141,6 @@ class World:
 
         watersY = int(self.getY() * 0.1)
 
-        print(waterX, waterY)
         ## What the height of the river should be.
         for y in range(int(waterY - (self.getY() * 0.1)), int(waterY + (self.getY() * 0.1))):
             ## What the length of the river should be.
@@ -165,6 +164,16 @@ class World:
                     self.worldMap[y].append(Tree(x, y))
                 self.worldMap[y].append(Block(x, y))
 
+        ## Makes sure that there's water.
+        watered = False
+        while(not(watered)):
+            try:
+                self.createWater()
+                watered = True
+            except:
+                continue
+            
+
 
 
     def interact(self, x, y):
@@ -181,6 +190,6 @@ if(__name__ == "__main__"):
     myWorld = World(0, sizeX = 12, sizeY = 32)
     myWorld.buildWorld()
 
-    myWorld.createWater()
+#    myWorld.createWater()
     
     print(myWorld)
