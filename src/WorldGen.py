@@ -98,9 +98,10 @@ class Water(Block):
         return(Fish(0))
 
 ## Specific class for NPCs.
-class NPC(Block): 
-    def __init__(self, x, y):
+class NPC(Block):
+    def __init__(self, x, y, name):
         super().__init__(x, y, Map_Person, False, "g")
+        self.npcName = name
         
             
 ## A class for the world.
@@ -239,4 +240,4 @@ class World:
 
             
 if(__name__ == "__main__"):
-    print("Hello, World!")
+    print("njdasndoiajsdo")
