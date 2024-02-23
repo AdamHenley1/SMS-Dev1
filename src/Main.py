@@ -3,7 +3,7 @@ from People import *
 
 
 def startMenu():
-    newWorld = World(0, sizeX = 200, sizeY = 64)
+
     
     print("Welcome to HAC society!")
     newW = input("Would you like to load a saved world? [y / N] ")
@@ -24,8 +24,11 @@ def startMenu():
         newWorld.buildWorld()
         print("Success!")
 
+        people = input("How many people do you want: ")
+        # How X by Y
+        newWorld = World(0, sizeX = x, sizeY = y)
         print("Spawning people...")
-        for i in range(10):
+        for i in range(people):
             spawn(newWorld)
         
         print("Starting world...")
