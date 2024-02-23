@@ -18,34 +18,22 @@ people_population = []
 
 
 def spawn(world):
-    x = randint(0, world.getX())
-    y = randint(0,world.getY())
-    print(world.getPoint(x, y))
-    """while world.getPoint(x, y) != " ":
+    validator = False
+    while False:
         x = randint(0, world.getX())
         y = randint(0,world.getY())
-    temp = people(getName())
-    people_population.append(temp)"""
-    
+        checker = world.getPoint(x, y)
+        if checker == " Dirt":
+            temp = people(getName())
+            people_population.append(temp)
+            #cameron can u add a thing to get rid of the dirt space with an X for now
+            validator = True
+        else: pass
 
 
 
 ## Chooses a new name from 487861706 different possibilities
 def getName():
-<<<<<<< HEAD
-    fNames = []
-    sNames = []
-
-    with open("assets/FirstNames.txt") as fNamesFile:
-        for fName in fNamesFile:
-            fNames.append(fName[:-1])
-    with open("assets/LastNames.txt") as sNamesFile:
-        for sName in sNamesFile:
-            sNames.append(sName[:-1])
-
-    
-    name = choice(fNames).title() + " " + choice(sNames).title()
-=======
     fNames = 5494
     sNames = 88799
     FName_Choise = randint(1,fNames)
@@ -55,7 +43,6 @@ def getName():
     file = open('LastNames.txt') 
     scontent = file.readlines() 
     name = choice(fcontent[FName_Choise:FName_Choise+1]) + choice(scontent[SNames_Choise:SNames_Choise+1])
->>>>>>> c44cec1 (Updated People class.)
     return name
 
 
