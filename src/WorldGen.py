@@ -233,11 +233,4 @@ class World:
 
             
 if(__name__ == "__main__"):
-    print()
-    myWorld = World(0, sizeX = 64, sizeY = 32)
-    #myWorld.buildWorld()
-
-    myWorld.loadWorld("saveData")
-    print(myWorld)
-    #myWorld.loadWorld("saveData")
-    #print(myWorld)
+    print("Hello, World!")

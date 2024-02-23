@@ -32,6 +32,7 @@ def spawn(world):
 
 ## Chooses a new name from 487861706 different possibilities
 def getName():
+<<<<<<< HEAD
     fNames = []
     sNames = []
 
@@ -44,6 +45,17 @@ def getName():
 
     
     name = choice(fNames).title() + " " + choice(sNames).title()
+=======
+    fNames = 5494
+    sNames = 88799
+    FName_Choise = randint(1,fNames)
+    SNames_Choise = randint(1,sNames)
+    ffile = open('FirstNames.txt') 
+    fcontent = ffile.readlines() 
+    file = open('LastNames.txt') 
+    scontent = file.readlines() 
+    name = choice(fcontent[FName_Choise:FName_Choise+1]) + choice(scontent[SNames_Choise:SNames_Choise+1])
+>>>>>>> c44cec1 (Updated People class.)
     return name
 
 
@@ -75,34 +87,73 @@ def getJob():
     
     #print(workers)
 
-class people:
-    def __init__(self, naming):
+class People:
+    def __init__(self, naming, x, y):
         self.job = getJob()
         self.name = naming
+        self.__pos = [x, y]
         self.inventory = {"Money":0,
                           "Wood": 0,
-                          "fish": 0}
+                          "Fish": 0}
 
-    def add_money(self, amount):
+
+    def getJob(self):
+        return self.job
+    
+    def getName(self):
+        return self.name
+    
+    def getMoney(self):
+        return self.inventory("Money")
+
+    def getFish(self):
+        return self.inventory["Fish"]
+
+    def getWood(self):
+        return self.inventory["Wood"]
+    
+    def addMoney(self, amount):
         self.inventory["Money"] += amount
-    def add_wood(self, wood):
+        
+    def addWood(self, wood):
         self.inventory["Wood"] += wood
-    def add_fish(self,fish):
+        
+    def addFish(self,fish):
         self.inventory["Fish"] += fish
 
+    ## Moves the NPC.
+    def move(self, x, y):
+        self.__pos[0] += x
+        self.__pos[1] += y
 
-    def return_job(self):
-        return self.job
-    def return_name(self):
-        return self.name
-    def return_money(self):
-        return self.inventory("Money")
-    def add_money(self, amount):
-        self.inventory["gold"] = self.inventory["gold"] + amount
-    def add_wood(self, wood):
-        self.inventory["wood"] = self.inventory["wood"] + wood
-    def add_fish(self,fish):
-        self.inventory["fish"] = self.inventory["fish"] + fish
+    ## Scans the local area for a specific block.
+    def scanFor(self, block, radius):
+        for y in range(radius):
+            
+
+    ## Finds some fish.
+    def findFish(self):
+        if(randint(0, 1) == 0):
+            self.move
+
+    ## Finds some wood.
+    def findWood(self):
+        continue
+
+        
+    ## Wanting something prefixes the variable with a 'w'.
+    def needs(self):
+        wFish = getFish()
+        wWood = getWood()
+
+        if(wFish < 2):
+            self.findFish(self)
+            
+        elif(radint(0, 10) < 6):
+            self.findWood(self)
+        
+
+
 
         
 ## This will run if the file is directly called,
@@ -118,5 +169,4 @@ if(__name__ == "__main__"):
         #def person(age = 0):
     for i in range(population):
         temp = people_population[i]
-        print("Name:",temp.return_name(),", Job:",temp.return_job())
-            
+        print("Name:",temp.return_name(),", Job:",temp.return_job())            
