@@ -1,5 +1,4 @@
-import random
-from random import choice
+from random import *
 from WorldGen import *
 
 #global variables
@@ -10,7 +9,7 @@ workers = {"fishermen": 30,
            "builders": 40,
            "lumberjack": 10}
 
-#weather is out of 3 --> random.randint(0,3)
+#weather is out of 3 --> randint(0,3)
 weather = {"humidity": 2,
            "precipitation": 1,
            "sunny": 3}
@@ -18,8 +17,8 @@ weather = {"humidity": 2,
 
 
 def getPosition(world):
-    x = random.randint(0, world.getX())
-    y = random.randint(0,world.getY())
+    x = randint(0, world.getX())
+    y = randint(0,world.getY())
     print(world.getPoint(x, y))
 
 
@@ -49,7 +48,7 @@ def getJob():
     prob = [fishProb, buildProb, lumProb]
     prob.sort(reverse = True)
 
-    n = random.random()
+    n = random()
     #print(n)
 
     mid = prob[0]-prob[1]
