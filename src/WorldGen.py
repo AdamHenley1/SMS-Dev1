@@ -1,8 +1,4 @@
-
-## We need a lot of maths for this generation
-from math import *
-from random import *
-
+from random import randint
 
 
 ## The items are a collection of (guess what) items that people
@@ -146,8 +142,17 @@ class World:
         watersY = int(self.getY() * 0.1)
 
         print(waterX, waterY)
+        ## What the height of the river should be.
         for y in range(int(waterY - (self.getY() * 0.1)), int(waterY + (self.getY() * 0.1))):
-            self.setPoint(Water(waterX, y), waterX, y)
+            ## What the length of the river should be.
+            for x in range(randint(int(-1 * self.getX()), 0), randint(1, int(self.getX() * 0.1))):
+                watersX = waterX + x
+
+                ## Catch if the river is too far to the right, and wraps it around if it is.
+                if(watersX > self.getX()):
+                    watersX -= self.getX()
+                    
+                self.setPoint(Water(watersX, y), watersX, y)
 
         
     ## This generates the the world.
@@ -160,6 +165,8 @@ class World:
                     self.worldMap[y].append(Tree(x, y))
                 self.worldMap[y].append(Block(x, y))
 
+
+
     def interact(self, x, y):
         inter = self.getPoint(x, y).interact()
         if(type(inter) != type((0, 1))):
@@ -171,8 +178,9 @@ class World:
 
             
 if(__name__ == "__main__"):
-    myWorld = World(0, sizeX = 12, sizeY = 36)
+    myWorld = World(0, sizeX = 12, sizeY = 32)
     myWorld.buildWorld()
-    
+
     myWorld.createWater()
+    
     print(myWorld)
