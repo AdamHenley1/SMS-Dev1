@@ -53,29 +53,39 @@ def getJob():
     else:
         where = 1
     if prob[where] == fishProb:
-        workers["fishermen"] = workers["fishermen"] + 1
+        workers["fishermen"] += 1
         return "fishermen"
     elif prob[where] == buildProb:
-        workers["builders"] = workers["builders"] + 1
+        workers["builders"] += 1
         return "builders"
     else:
-        workers["lumberjack"] = workers["lumberjack"] + 1
+        workers["lumberjack"] += 1
         return "lumberjack"
     
     #print(workers)
 
-class People:
-    def __init__(self, naming, ):
+class people:
+    def __init__(self, naming):
         self.job = getJob()
         self.name = naming
-        self.inventory = {"gold":0,
-                          "wood": 0,
+        self.inventory = {"Money":0,
+                          "Wood": 0,
                           "fish": 0}
+
+    def add_money(self, amount):
+        self.inventory["Money"] += amount
+    def add_wood(self, wood):
+        self.inventory["Wood"] += wood
+    def add_fish(self,fish):
+        self.inventory["Fish"] += fish
+
 
     def return_job(self):
         return self.job
     def return_name(self):
         return self.name
+    def return_money(self):
+        return self.inventory("Money")
     def add_money(self, amount):
         self.inventory["gold"] = self.inventory["gold"] + amount
     def add_wood(self, wood):
