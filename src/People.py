@@ -16,16 +16,16 @@ weather = {"humidity": 2,
 
 people_population = []
 
-
+#chooses a random point in the map and checks if it's a space, if so then spawns
 def spawn(world):
     x = randint(0, world.getX())
     y = randint(0,world.getY())
     print(world.getPoint(x, y))
-    """while world.getPoint(x, y) != " ":
-        x = randint(0, world.getX())
-        y = randint(0,world.getY())
+    while world.getPoint(x, y) != " ":
+        x = randint(0, world.getX()-1)
+        y = randint(0,world.getY()-1)
     temp = people(getName())
-    people_population.append(temp)"""
+    people_population.append(temp)
     
 
 
@@ -35,10 +35,10 @@ def getName():
     fNames = []
     sNames = []
 
-    with open("assets/FirstNames.txt") as fNamesFile:
+    with open("src\FirstNames.txt") as fNamesFile:
         for fName in fNamesFile:
             fNames.append(fName[:-1])
-    with open("assets/LastNames.txt") as sNamesFile:
+    with open("src/LastNames.txt") as sNamesFile:
         for sName in sNamesFile:
             sNames.append(sName[:-1])
 
