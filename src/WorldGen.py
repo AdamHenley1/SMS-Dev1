@@ -181,7 +181,17 @@ class World:
                 watered = True
             except:
                 continue
+
+    ## Just writes to a specified file instead of stdout
+    def saveWorld(self, saveFile):
+        saveData = ""
+        for rows in self.worldMap:
+            for point in rows:
+                saveData += point.getName()
+            saveData += '\n'
             
+        with open(saveFile, 'w') as save:
+            save.write(saveData)
 
     def interact(self, x, y):
         inter = self.getPoint(x, y).interact()
@@ -198,6 +208,9 @@ if(__name__ == "__main__"):
     myWorld = World(0, sizeX = 64, sizeY = 32)
     myWorld.buildWorld()
 
+    myWorld.saveWorld("saveData")
+
 #    myWorld.createWater()
     
-    print(myWorld)
+#    print(myWorld)
+
