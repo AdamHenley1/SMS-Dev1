@@ -15,15 +15,18 @@ weather = {"humidity": 2,
            "precipitation": 1,
            "sunny": 3}
 
+people_population = []
 
-
-def getPosition(world):
+def spawn(world):
     x = random.randint(0, world.getX())
     y = random.randint(0,world.getY())
     print(world.getPoint(x, y))
+    """while world.getPoint(x, y) != "Dirt":
+        x = random.randint(0, world.getX())
+        y = random.randint(0,world.getY())"""
+    
 
 
-people_population = []
 
 ## Chooses a new name from 487861706 different possibilities
 def getName():
@@ -105,7 +108,7 @@ class people:
 if(__name__ == "__main__"):
     andWorld = World(0)
     andWorld.buildWorld()
-    getPosition(andWorld)
+    spawn(andWorld)
     
     for i in range(population):
         temp = getName()
