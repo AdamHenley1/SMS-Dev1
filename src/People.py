@@ -19,10 +19,21 @@ weather = {"humidity": 2,
 
 people_population = []
 
+## Chooses a new name from 487861706 different possibilities
 def getName():
-    name = choice(first) + " " + choice(last)
+    fNames = []
+    sNames = []
+
+    with open("../assets/FirstNames.txt") as fNamesFile:
+        for fName in fNamesFile:
+            fNames.append(fName)
+    with open("../assets/LastNames.txt") as sNamesFile:
+        for sName in sNamesFile:
+            sNames.append(sName)
+
+    
+    name = choice(fNames) + " " + choice(sNames)
     return name
-    #print(name)    
 
 
 def getJob():
