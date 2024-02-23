@@ -98,9 +98,10 @@ class Water(Block):
         return(Fish(0))
 
 #specific class for show people
-class person(Block): 
+class NPC(Block): 
     def __init__(self, x, y):
         super().__init__(x, y, Map_Person, False, "g")
+        
             
 ## A class for the world.
 ## This goes y/x, not x/y as everything else
