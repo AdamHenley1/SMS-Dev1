@@ -18,17 +18,18 @@ people_population = []
 
 #chooses a random point in the map and checks if it's a space, if so then spawns
 def spawn(world):
-    validator = False
-    while False:
-        x = randint(0, world.getX())
-        y = randint(0,world.getY())
-        checker = world.getPoint(x, y)
-        if checker == " Dirt":
-            temp = People(getName())
-            people_population.append(temp)
-            world.setPoint(person,x,y)
-            validator = True
-        else: pass
+    placed = False
+    while(placed != True):
+        pointX = randint(0, world.getX())
+        pointY = randint(0, world.getY())
+
+        try:
+            if(world.getPoint(pointX, pointY).getName() == ' '):
+                world.setPoint(NPC(pointX, pointY, "Gary"), pointX, pointY)
+                placed = True
+                
+        except:
+            continue
 
 
 
@@ -151,14 +152,17 @@ class People:
 ## This will run if the file is directly called,
 ## but not if it is imported as a library.
 if(__name__ == "__main__"):
-    andWorld = World(0)
+    andWorld = World(0, sizeX = 64, sizeY = 16)
     andWorld.buildWorld()
-    spawn(andWorld)
+    for i in range(20):
+        spawn(andWorld)
+    print(andWorld)
     
-    for i in range(population):
-        temp = People(getName())
-        people_population.append(temp)
-        #def person(age = 0):
-    for i in range(population):
-        temp = People_population[i]
-        print("Name:",temp.return_name(),", Job:",temp.return_job())            
+#    for i in range(population):
+#        temp = People(getName())
+#        people_population.append(temp)
+#        #def person(age = 0):
+#    for i in range(population):
+#        temp = People_population[i]
+#        print("Name:",temp.return_name(),", Job:",temp.return_job())            
+#
