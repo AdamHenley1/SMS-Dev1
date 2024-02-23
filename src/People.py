@@ -36,13 +36,13 @@ def getName():
 
     with open("../assets/FirstNames.txt") as fNamesFile:
         for fName in fNamesFile:
-            fNames.append(fName)
+            fNames.append(fName[:-1)
     with open("../assets/LastNames.txt") as sNamesFile:
         for sName in sNamesFile:
-            sNames.append(sName)
+            sNames.append(sName[:-1])
 
     
-    name = choice(fNames) + " " + choice(sNames)
+    name = choice(fNames).title() + " " + choice(sNames).title()
     return name
 
 
