@@ -14,6 +14,7 @@ ToDo:
 Development:
 - Created a dictionary containing the different job options and how many woker in each. This was used in the getJob function to get a number for the probability of what the job assigned should be based on the workers there already are. Less wokers means higher probability of that specific job being assigned.
 - Created a getName function which selects a random first and last name from their respective files.
+-
 
 ### World Plan
 ToDo:
