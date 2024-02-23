@@ -75,7 +75,7 @@ def getJob():
     #print(workers)
 
 class People:
-    def __init__(self, naming, x, y):
+    def __init__(self, naming, x = 0, y = 0):
         self.job = getJob()
         self.name = naming
         self.__pos = [x, y]
@@ -115,9 +115,10 @@ class People:
 
     ## Scans the local area for a specific block.
     def scanFor(self, block, radius):
-        for y in range(radius):
-            for x in range(radius):
-                print(x, y)
+        #        for y in range(radius):
+        #            for x in range(radius):
+        #                print(x, y)
+        return(None)
             
 
     ## Finds some fish.
