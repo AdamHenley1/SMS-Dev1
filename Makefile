@@ -8,4 +8,4 @@ $(PYBIN)/activate: requirements.txt
 
 
 clean::
-	rm -rf __pycache__ $(SRC)venv
+	rm -rf __pycache__ $(SRC)/__pycache__ $(SRC)venv
