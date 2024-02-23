@@ -2,7 +2,7 @@ import random
 from random import choice
 
 #global variables
-population = 1000
+population = 10000
 
 #dictionary
 workers = {"fishermen": 30,
@@ -25,9 +25,9 @@ def getName():
     sNames = 88799
     FName_Choise = random.randint(1,fNames)
     SNames_Choise = random.randint(1,sNames)
-    ffile = open('/Users/adamhenley/Documents/GitHub/SMS-Dev1/assets/FirstNames.txt') 
+    ffile = open('FirstNames.txt') 
     fcontent = ffile.readlines() 
-    file = open('/Users/adamhenley/Documents/GitHub/SMS-Dev1/assets/LastNames.txt') 
+    file = open('LastNames.txt') 
     scontent = file.readlines() 
     name = choice(fcontent[FName_Choise:FName_Choise+1]) + choice(scontent[SNames_Choise:SNames_Choise+1])
     return name
