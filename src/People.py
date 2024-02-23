@@ -24,7 +24,7 @@ def spawn(world):
         y = randint(0,world.getY())
         checker = world.getPoint(x, y)
         if checker == " Dirt":
-            temp = people(getName())
+            temp = People(getName())
             people_population.append(temp)
             world.setPoint(person,x,y)
             validator = True
@@ -38,9 +38,9 @@ def getName():
     sNames = 88799
     FName_Choise = randint(1,fNames)
     SNames_Choise = randint(1,sNames)
-    ffile = open('FirstNames.txt') 
+    ffile = open('SMS-Dev1/src/FirstNames.txt') 
     fcontent = ffile.readlines() 
-    file = open('LastNames.txt') 
+    file = open('SMS-Dev1/src/LastNames.txt') 
     scontent = file.readlines() 
     name = choice(fcontent[FName_Choise:FName_Choise+1]) + choice(scontent[SNames_Choise:SNames_Choise+1])
     return name
@@ -75,7 +75,7 @@ def getJob():
     #print(workers)
 
 class People:
-    def __init__(self, naming, x, y):
+    def __init__(self, naming, x = 0, y = 0):
         self.job = getJob()
         self.name = naming
         self.__pos = [x, y]
@@ -115,9 +115,10 @@ class People:
 
     ## Scans the local area for a specific block.
     def scanFor(self, block, radius):
-        for y in range(radius):
-            for x in range(radius):
-                print(x, y)
+        #        for y in range(radius):
+        #            for x in range(radius):
+        #                print(x, y)
+        return(None)
             
 
     ## Finds some fish.
@@ -155,9 +156,9 @@ if(__name__ == "__main__"):
     spawn(andWorld)
     
     for i in range(population):
-        temp = people(getName())
+        temp = People(getName())
         people_population.append(temp)
         #def person(age = 0):
     for i in range(population):
-        temp = people_population[i]
+        temp = People_population[i]
         print("Name:",temp.return_name(),", Job:",temp.return_job())            
