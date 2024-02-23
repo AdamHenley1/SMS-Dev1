@@ -1,14 +1,11 @@
-PYBIN=./venv/bin
 SRC=./src
+PYBIN=$(SRC)/venv/bin
 
-
-$(SRC)/main: $(PYBIN)/activate
-	$(PYBIN)/python3 $@.py
 
 $(PYBIN)/activate: requirements.txt
-	python3 -m venv venv
+	python3 -m venv $(SRC)/venv
 	$(PYBIN)/pip install -r requirements.txt
 
 
 clean::
-	rm -rf __pycache__ venv
+	rm -rf __pycache__ $(SRC)venv
