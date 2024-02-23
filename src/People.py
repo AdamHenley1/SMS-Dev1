@@ -2,7 +2,7 @@ from random import *
 from WorldGen import *
 
 #global variables
-population = 100000
+population = 100
 
 #dictionary
 workers = {"fishermen": 30,
