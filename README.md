@@ -10,7 +10,7 @@ There are more details on specific parts of this shown below.
 
 
 ## The World
-![](Map Screenshot.png)
+![The Map](images/Map Screenshot.png)
 The world (as screenshot of which is shown above) is a grid of points along an x and y axis. Each block can start as one of three block: dirt (shown by a space), a tree (shown by a little tree), or water (shown by a little bar).
 
 ## The People
