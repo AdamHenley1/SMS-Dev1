@@ -25,8 +25,10 @@ def startMenu():
         print("Success!")
 
         people = input("How many people do you want: ")
-        # How X by Y
+        
+        x,y = input("How big do you want the world to be [x y]: ").split(" ")
         newWorld = World(0, sizeX = x, sizeY = y)
+        
         print("Spawning people...")
         for i in range(people):
             spawn(newWorld)
