@@ -108,8 +108,7 @@ if(__name__ == "__main__"):
     getPosition(andWorld)
     
     for i in range(population):
-        temp = getName()
-        temp = people(temp)
+        temp = people(getName())
         people_population.append(temp)
         #def person(age = 0):
     for i in range(population):
