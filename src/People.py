@@ -30,18 +30,15 @@ def spawn(world):
 
 ## Chooses a new name from 487861706 different possibilities
 def getName():
-    fNames = []
-    sNames = []
-
-    with open("../assets/FirstNames.txt") as fNamesFile:
-        for fName in fNamesFile:
-            fNames.append(fName[:-1])
-    with open("../assets/LastNames.txt") as sNamesFile:
-        for sName in sNamesFile:
-            sNames.append(sName[:-1])
-
-    
-    name = choice(fNames).title() + " " + choice(sNames).title()
+    fNames = 5494
+    sNames = 88799
+    FName_Choise = random.randint(1,fNames)
+    SNames_Choise = random.randint(1,sNames)
+    ffile = open('FirstNames.txt') 
+    fcontent = ffile.readlines() 
+    file = open('LastNames.txt') 
+    scontent = file.readlines() 
+    name = choice(fcontent[FName_Choise:FName_Choise+1]) + choice(scontent[SNames_Choise:SNames_Choise+1])
     return name
 
 
