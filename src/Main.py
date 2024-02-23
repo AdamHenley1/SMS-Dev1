@@ -7,6 +7,7 @@ def startMenu():
     
     print("Welcome to HAC society!")
     newW = input("Would you like to load a saved world? [y / N] ")
+    newWorld = World(0)
     
     if(newW.lower() == 'y'):
         saveFile = input("What is the path to the save file: ")
@@ -27,10 +28,10 @@ def startMenu():
         people = input("How many people do you want: ")
         
         x,y = input("How big do you want the world to be [x y]: ").split(" ")
-        newWorld = World(0, sizeX = x, sizeY = y)
+        newWorld = World(0, sizeX = int(x), sizeY = int(y))
         
         print("Spawning people...")
-        for i in range(people):
+        for i in range(int(people)):
             spawn(newWorld)
         
         print("Starting world...")
