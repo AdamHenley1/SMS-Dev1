@@ -21,9 +21,11 @@ def spawn(world):
     x = randint(0, world.getX())
     y = randint(0,world.getY())
     print(world.getPoint(x, y))
-    """while world.getPoint(x, y) != "Dirt":
-        x = random.randint(0, world.getX())
-        y = random.randint(0,world.getY())"""
+    """while world.getPoint(x, y) != " ":
+        x = randint(0, world.getX())
+        y = randint(0,world.getY())
+    temp = people(getName())
+    people_population.append(temp)"""
     
 
 
@@ -33,10 +35,10 @@ def getName():
     fNames = []
     sNames = []
 
-    with open("../assets/FirstNames.txt") as fNamesFile:
+    with open("assets/FirstNames.txt") as fNamesFile:
         for fName in fNamesFile:
             fNames.append(fName[:-1])
-    with open("../assets/LastNames.txt") as sNamesFile:
+    with open("assets/LastNames.txt") as sNamesFile:
         for sName in sNamesFile:
             sNames.append(sName[:-1])
 
