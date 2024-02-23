@@ -30,13 +30,13 @@ def spawn(world):
 
 ## Chooses a new name from 487861706 different possibilities
 def getName():
-    fNames = 5494
-    sNames = 88799
-    FName_Choise = random.randint(1,fNames)
-    SNames_Choise = random.randint(1,sNames)
-    ffile = open('FirstNames.txt') 
+    fNames = 5493
+    sNames = 88798
+    FName_Choise = randint(1,fNames)
+    SNames_Choise = randint(1,sNames)
+    ffile = open('SMS-Dev1/src/FirstNames.txt') 
     fcontent = ffile.readlines() 
-    file = open('LastNames.txt') 
+    file = open('SMS-Dev1/src/LastNames.txt') 
     scontent = file.readlines() 
     name = choice(fcontent[FName_Choise:FName_Choise+1]) + choice(scontent[SNames_Choise:SNames_Choise+1])
     return name
