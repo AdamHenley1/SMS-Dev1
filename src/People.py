@@ -26,7 +26,7 @@ def spawn(world):
         if checker == " Dirt":
             temp = people(getName())
             people_population.append(temp)
-            #cameron can u add a thing to get rid of the dirt space with an X for now
+            world.setPoint(person,x,y)
             validator = True
         else: pass
 
