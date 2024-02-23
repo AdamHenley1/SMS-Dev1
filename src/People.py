@@ -14,6 +14,9 @@ weather = {"humidity": 2,
            "precipitation": 1,
            "sunny": 3}
 
+#def position():
+
+
 people_population = []
 
 def getName():
@@ -64,12 +67,12 @@ class people:
         return self.job
     def return_name(self):
         return self.name
-"""   def add_money(self, amount):
+    def add_money(self, amount):
         self.inventory["gold"] = self.inventory["gold"] + amount
     def add_wood(self, wood):
         self.inventory["wood"] = self.inventory["wood"] + wood
     def add_fish(self,fish):
-        self.inventory["fish"] = self.inventory["fish"] + fish"""
+        self.inventory["fish"] = self.inventory["fish"] + fish
 
 for i in range(population):
     temp = getName()
