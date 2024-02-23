@@ -34,8 +34,10 @@ class Fish(Item):
 ## The Blocks are the building blocks of the map: everything is made
 ## out of them.
 ## s is shovel, p is pickaxe
+## The first character of the name decides what it
+## will be called on the map.
 class Block:
-    def __init__(self, x, y, name = "Dirt", move = True, info = "ms"):
+    def __init__(self, x, y, name = " dirt", move = True, info = "ms"):
         self.name = name
         self.move = move
         self.info = info
@@ -44,6 +46,9 @@ class Block:
 
     def __str__(self):
         return(self.name)
+
+    def getName(self):
+        return(self.name[0])
 
     def setBlock(self, name, move, info):
         self.name = name
@@ -101,7 +106,8 @@ class World:
         retVal = ""
         for y in range(self.getY()):
             for x in range(self.getX()):
-                retVal += ("{0}x{1}: {2}\t".format(x, y, self.worldMap[y][x]))
+                #retVal += ("{0}x{1}: {2}\t".format(x, y, self.worldMap[y][x]))
+                retVal += self.getPointName(x, y)
             retVal += '\n'
         return(retVal)
 
@@ -115,8 +121,10 @@ class World:
         return(self.size())
 
     def getPoint(self, x, y):
-        print(x, y)
         return(self.worldMap[y][x])
+
+    def getPointName(self, x, y):
+        return(self.getPoint(x, y).getName())
 
     ## This prints the world
     def getMap(self):
@@ -175,8 +183,6 @@ class World:
                 continue
             
 
-
-
     def interact(self, x, y):
         inter = self.getPoint(x, y).interact()
         if(type(inter) != type((0, 1))):
@@ -188,9 +194,10 @@ class World:
 
             
 if(__name__ == "__main__"):
-    myWorld = World(0)
+    print()
+    myWorld = World(0, sizeX = 64, sizeY = 32)
     myWorld.buildWorld()
 
 #    myWorld.createWater()
     
-    print(myWorld.getPoint(595, 694))
+    print(myWorld)

@@ -1,5 +1,4 @@
-import random
-from random import choice
+from random import *
 from WorldGen import *
 
 #global variables
@@ -10,16 +9,17 @@ workers = {"fishermen": 30,
            "builders": 40,
            "lumberjack": 10}
 
-#weather is out of 3 --> random.randint(0,3)
+#weather is out of 3 --> randint(0,3)
 weather = {"humidity": 2,
            "precipitation": 1,
            "sunny": 3}
 
 people_population = []
 
+
 def spawn(world):
-    x = random.randint(0, world.getX())
-    y = random.randint(0,world.getY())
+    x = randint(0, world.getX())
+    y = randint(0,world.getY())
     print(world.getPoint(x, y))
     """while world.getPoint(x, y) != "Dirt":
         x = random.randint(0, world.getX())
@@ -52,7 +52,7 @@ def getJob():
     prob = [fishProb, buildProb, lumProb]
     prob.sort(reverse = True)
 
-    n = random.random()
+    n = random()
     #print(n)
 
     mid = prob[0]-prob[1]
@@ -111,8 +111,7 @@ if(__name__ == "__main__"):
     spawn(andWorld)
     
     for i in range(population):
-        temp = getName()
-        temp = people(temp)
+        temp = people(getName())
         people_population.append(temp)
         #def person(age = 0):
     for i in range(population):
