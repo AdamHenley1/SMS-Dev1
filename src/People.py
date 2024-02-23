@@ -16,7 +16,7 @@ weather = {"humidity": 2,
 
 people_population = []
 
-
+#chooses a random point in the map and checks if it's a space, if so then spawns
 def spawn(world):
     validator = False
     while False:
