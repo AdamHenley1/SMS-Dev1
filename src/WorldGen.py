@@ -36,8 +36,14 @@ class Fish(Item):
 ## s is shovel, p is pickaxe
 ## The first character of the name decides what it
 ## will be called on the map.
+
+#first character will show up in map
+Map_Tree = "𓋼Tree"
+Map_Water = "║ Water"
+Map_Dirt = " Dirt"
+
 class Block:
-    def __init__(self, x, y, name = " dirt", move = True, info = "ms"):
+    def __init__(self, x, y, name = Map_Dirt, move = True, info = "ms"):
         self.name = name
         self.move = move
         self.info = info
@@ -74,7 +80,7 @@ class Block:
 ## Specific class for trees.
 class Tree(Block):
     def __init__(self, x, y):
-        super().__init__(x, y, "Tree", False, "ma")
+        super().__init__(x, y, Map_Tree, False, "ma")
 
     def interact(self):
         return("td", Wood(randint(5,20)))
@@ -83,7 +89,7 @@ class Tree(Block):
 class Water(Block):
     def __init__(self, x, y):
         ## f is fishable
-        super().__init__(x, y, "Water", False, "f")
+        super().__init__(x, y, Map_Water, False, "f")
 
     def interact(self):
         caught = randint(1, 5)
