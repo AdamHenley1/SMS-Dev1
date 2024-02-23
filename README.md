@@ -1,8 +1,8 @@
 # MERLIN HACKATHON 2024 | Team NotTheCIA
 
-## [ Game Name ] Overview
+## HAC Society Overview
 ### Overview
-[ game name ] is a world building game, set in a procedurally generated retro map. You have a civilisation of people; these people will do their own things, but you can set community goals (such as upgrading the town hall), which you will pay them to do for you.
+HAC Society is a world building game, set in a procedurally generated retro map. You have a civilisation of people; these people will do their own things, but you can set community goals (such as upgrading the town hall), which you will pay them to do for you.
 
 You get the money to pay for this from the taxes that the people will pay to you. They get taxed some money when they trade with each other, or [ maybe another thing ].
 
