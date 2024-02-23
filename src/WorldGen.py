@@ -139,6 +139,15 @@ class World:
         if(code == "td"):
             self.setPoint(Block(x, y), x, y)
 
+    ## Identifies a block given its ID and x/y coordinates.
+    def identify(self, block, x, y):
+        if(block == 'W'):
+            return(Water(x, y))
+        elif(block == 'T'):
+            return(Tree(x, y))
+        else:
+            return(Block(x, y))
+
     ## Find where water should be put, and puts it
     ## there.
     def createWater(self):
@@ -182,7 +191,7 @@ class World:
             except:
                 continue
 
-    ## Just writes to a specified file instead of stdout
+    ## Just writes to a specified file instead of stdout.
     def saveWorld(self, saveFile):
         saveData = ""
         for rows in self.worldMap:
@@ -193,6 +202,20 @@ class World:
         with open(saveFile, 'w') as save:
             save.write(saveData)
 
+    ## Lets a user load a world from a file.
+    def loadWorld(self, saveFile):
+        x = 0
+        y = 0
+        with open(saveFile, 'r') as data:
+            for rows in data:
+                x = 0
+                self.worldMap.append([])
+                for block in rows:
+                    self.worldMap[-1].append(self.identify(block, x, y))
+                    x += 1
+                y += 1
+
+    ## Interact with a given point on the map
     def interact(self, x, y):
         inter = self.getPoint(x, y).interact()
         if(type(inter) != type((0, 1))):
@@ -206,11 +229,9 @@ class World:
 if(__name__ == "__main__"):
     print()
     myWorld = World(0, sizeX = 64, sizeY = 32)
-    myWorld.buildWorld()
+    #myWorld.buildWorld()
 
-    myWorld.saveWorld("saveData")
-
-#    myWorld.createWater()
-    
-#    print(myWorld)
-
+    myWorld.loadWorld("saveData")
+    print(myWorld)
+    #myWorld.loadWorld("saveData")
+    #print(myWorld)
