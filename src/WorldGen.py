@@ -36,8 +36,14 @@ class Fish(Item):
 ## s is shovel, p is pickaxe
 ## The first character of the name decides what it
 ## will be called on the map.
+
+#first character will show up in map
+Map_Tree = "𓋼Tree"
+Map_Water = "║ Water"
+Map_Dirt = " Dirt"
+
 class Block:
-    def __init__(self, x, y, name = " dirt", move = True, info = "ms"):
+    def __init__(self, x, y, name = Map_Dirt, move = True, info = "ms"):
         self.name = name
         self.move = move
         self.info = info
@@ -74,7 +80,7 @@ class Block:
 ## Specific class for trees.
 class Tree(Block):
     def __init__(self, x, y):
-        super().__init__(x, y, "Tree", False, "ma")
+        super().__init__(x, y, Map_Tree, False, "ma")
 
     def interact(self):
         return("td", Wood(randint(5,20)))
@@ -83,7 +89,7 @@ class Tree(Block):
 class Water(Block):
     def __init__(self, x, y):
         ## f is fishable
-        super().__init__(x, y, "Water", False, "f")
+        super().__init__(x, y, Map_Water, False, "f")
 
     def interact(self):
         caught = randint(1, 5)
@@ -139,6 +145,15 @@ class World:
         if(code == "td"):
             self.setPoint(Block(x, y), x, y)
 
+    ## Identifies a block given its ID and x/y coordinates.
+    def identify(self, block, x, y):
+        if(block == 'W'):
+            return(Water(x, y))
+        elif(block == 'T'):
+            return(Tree(x, y))
+        else:
+            return(Block(x, y))
+
     ## Find where water should be put, and puts it
     ## there.
     def createWater(self):
@@ -181,8 +196,32 @@ class World:
                 watered = True
             except:
                 continue
-            
 
+    ## Just writes to a specified file instead of stdout.
+    def saveWorld(self, saveFile):
+        saveData = ""
+        for rows in self.worldMap:
+            for point in rows:
+                saveData += point.getName()
+            saveData += '\n'
+            
+        with open(saveFile, 'w') as save:
+            save.write(saveData)
+
+    ## Lets a user load a world from a file.
+    def loadWorld(self, saveFile):
+        x = 0
+        y = 0
+        with open(saveFile, 'r') as data:
+            for rows in data:
+                x = 0
+                self.worldMap.append([])
+                for block in rows:
+                    self.worldMap[-1].append(self.identify(block, x, y))
+                    x += 1
+                y += 1
+
+    ## Interact with a given point on the map
     def interact(self, x, y):
         inter = self.getPoint(x, y).interact()
         if(type(inter) != type((0, 1))):
@@ -196,8 +235,9 @@ class World:
 if(__name__ == "__main__"):
     print()
     myWorld = World(0, sizeX = 64, sizeY = 32)
-    myWorld.buildWorld()
+    #myWorld.buildWorld()
 
-#    myWorld.createWater()
-    
+    myWorld.loadWorld("saveData")
     print(myWorld)
+    #myWorld.loadWorld("saveData")
+    #print(myWorld)
