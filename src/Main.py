@@ -39,6 +39,6 @@ def startMenu():
 
 
 if(__name__ == "__main__"):
-    world = startMenu()
-    
-    print(world)
+#    world = startMenu()
+    newWorld = World(0, sizeX = 16, sizeY = 16)
+    print(newWorld)

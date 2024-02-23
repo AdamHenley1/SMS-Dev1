@@ -117,7 +117,6 @@ class World:
         retVal = ""
         for y in range(self.getY()):
             for x in range(self.getX()):
-                #retVal += ("{0}x{1}: {2}\t".format(x, y, self.worldMap[y][x]))
                 retVal += self.getPointName(x, y)
             retVal += '\n'
         return(retVal)
@@ -240,4 +239,5 @@ class World:
 
             
 if(__name__ == "__main__"):
-    print("njdasndoiajsdo")
+    newW = World(0)
+    print(newW)
