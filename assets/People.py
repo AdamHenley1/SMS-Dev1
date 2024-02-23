@@ -20,6 +20,7 @@ weather = {"humidity": 2,
 people_population = []
 
 ## Chooses a new name from 487861706 different possibilities
+#dw bout me
 def getName():
     fNames = 5494
     sNames = 88799
