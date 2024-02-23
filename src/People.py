@@ -53,7 +53,7 @@ def getJob():
     
     #print(workers)
 
-class people:
+class People:
     def __init__(self, naming, ):
         self.job = getJob()
         self.name = naming
