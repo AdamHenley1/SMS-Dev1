@@ -20,13 +20,8 @@ weather = {"humidity": 2,
 def getPosition(world):
     x = random.randint(0, world.getX())
     y = random.randint(0,world.getY())
-    print(x, y)
-    print(world.getX(), world.getY())
-    print(world.getPoint(595, 694))
+    print(world.getPoint(x, y))
 
-andWorld = World(0)
-andWorld.buildWorld()
-getPosition(andWorld)
 
 people_population = []
 
@@ -108,6 +103,10 @@ class people:
 ## This will run if the file is directly called,
 ## but not if it is imported as a library.
 if(__name__ == "__main__"):
+    andWorld = World(0)
+    andWorld.buildWorld()
+    getPosition(andWorld)
+    
     for i in range(population):
         temp = getName()
         temp = people(temp)
