@@ -151,10 +151,12 @@ class World:
 
     ## Identifies a block given its ID and x/y coordinates.
     def identify(self, block, x, y):
-        if(block == 'W'):
+        if(block == '║'):
             return(Water(x, y))
-        elif(block == 'T'):
+        elif(block == '𓋼'):
             return(Tree(x, y))
+        elif(block == '웃'):
+            return(NPC(x, y))
         else:
             return(Block(x, y))
 

@@ -23,6 +23,10 @@ def startMenu():
         print("Generating a new world...")
         newWorld.buildWorld()
         print("Success!")
+
+        print("Spawning people...")
+        for i in range(10):
+            spawn(newWorld)
         
         print("Starting world...")
         return(newWorld)
@@ -30,4 +34,5 @@ def startMenu():
 
 if(__name__ == "__main__"):
     world = startMenu()
+    
     print(world)
