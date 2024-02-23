@@ -2,7 +2,7 @@ import random
 from random import choice
 
 #global variables
-population = 100
+population = 100000
 
 #dictionary
 workers = {"fishermen": 30,
@@ -20,8 +20,6 @@ weather = {"humidity": 2,
 people_population = []
 
 def getName():
-    first = ["Adam", "Andrea", "Cameron"]
-    last = ["Henley", "Crossa", "Ayres"]
     name = choice(first) + " " + choice(last)
     return name
     #print(name)    
